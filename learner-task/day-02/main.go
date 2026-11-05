@@ -10,6 +10,7 @@ func classify(value float64) string {
 	}
 
 	switch {
+	// This threshold is sample data for the exercise, not medical guidance.
 	case value < demonstrationLimit:
 		return "below demonstration limit"
 	case value == demonstrationLimit:

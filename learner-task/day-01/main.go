@@ -8,6 +8,7 @@ import (
 )
 
 func run(args []string, out, errOut io.Writer) int {
+	// os.Args includes the executable name at index 0.
 	if len(args) < 3 || len(args) > 4 {
 		fmt.Fprintln(errOut, "usage: carelog <observation-name> <value> [unit]")
 		return 2
@@ -28,5 +29,6 @@ func run(args []string, out, errOut io.Writer) int {
 }
 
 func main() {
+	// Keep process I/O at the CLI boundary so run can be tested independently.
 	os.Exit(run(os.Args, os.Stdout, os.Stderr))
 }
